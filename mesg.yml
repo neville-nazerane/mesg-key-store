@@ -1,13 +1,14 @@
 name: "Key Store"
 sid: "key-store"
 description: "Easy to use storage for keys"
-
 tasks:
   fetch:
     inputs:
-      type: string
+      alias:
+        type: string
     outputs:
-      type: String
+      key:
+        type: String
 configuration:
   ports:
     - "5321"
