@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Api;
 using Grpc.Core;
 using KeyStoreService.Data;
+using Newtonsoft.Json;
 using MyTask = System.Threading.Tasks.Task;
 
 namespace KeyStoreService.Mesg
@@ -19,7 +20,7 @@ namespace KeyStoreService.Mesg
             var client = new Service.ServiceClient(channel);
 
             var call = client.ListenTask(new ListenTaskRequest { Token = Environment.GetEnvironmentVariable("MESG_TOKEN") }).ResponseStream;
-            
+
             while (await call.MoveNext())
             {
                 var input = call.Current;
@@ -32,7 +33,8 @@ namespace KeyStoreService.Mesg
                 switch (input.TaskKey)
                 {
                     case "fetch":
-                        response.OutputData = Fetch(input.InputData);
+                        var req = JsonConvert.DeserializeObject<KeyRequest>(input.InputData);
+                        response.OutputData = JsonConvert.SerializeObject(new { Key = Fetch(req) });
                         client.SubmitResult(response);
                         break;
                 }
@@ -40,10 +42,10 @@ namespace KeyStoreService.Mesg
 
         }
 
-        static string Fetch(string alias)
+        static string Fetch(KeyRequest req)
         {
             using (var db = new AppDbContext())
-                return (from k in db.KeyInfos where k.Alias == alias select k.Key).SingleOrDefault();
+                return (from k in db.KeyInfos where k.Alias == req.Alias select k.Key).SingleOrDefault();
         }
 
     }
