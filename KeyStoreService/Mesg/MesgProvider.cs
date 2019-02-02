@@ -44,7 +44,6 @@ namespace KeyStoreService.Mesg
         {
             using (var db = new AppDbContext())
                 return (from k in db.KeyInfos where k.Alias == alias select k.Key).SingleOrDefault();
-            
         }
 
     }
