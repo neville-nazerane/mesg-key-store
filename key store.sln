@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28527.54
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyStoreService", "KeyStoreService\KeyStoreService.csproj", "{FB058648-8BE2-44D6-A28C-48EBFA876C4E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeyStoreService", "KeyStoreService\KeyStoreService.csproj", "{FB058648-8BE2-44D6-A28C-48EBFA876C4E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,9 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{FB058648-8BE2-44D6-A28C-48EBFA876C4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -30,5 +27,11 @@ Global
 		{FB058648-8BE2-44D6-A28C-48EBFA876C4E}.Release|x64.Build.0 = Release|Any CPU
 		{FB058648-8BE2-44D6-A28C-48EBFA876C4E}.Release|x86.ActiveCfg = Release|Any CPU
 		{FB058648-8BE2-44D6-A28C-48EBFA876C4E}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {43530E58-E71D-4E66-9738-51C29991D640}
 	EndGlobalSection
 EndGlobal
