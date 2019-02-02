@@ -2,6 +2,11 @@ name: "Key Store"
 sid: "key-store"
 description: "Easy to use storage for keys"
 tasks:
+  taskX:
+    inputs:
+      namedParameter:
+        type: String
+tasks:
   fetch:
     inputs:
       alias:
