@@ -12,8 +12,18 @@ namespace KeyStoreService.Data
         public AppDbContext (DbContextOptions<AppDbContext> options)
             : base(options)
         {
-
             Database.EnsureCreated();
+        }
+
+        public AppDbContext()
+        {
+            Database.EnsureCreated();
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlite("data source=store.db");
+            base.OnConfiguring(optionsBuilder);
         }
 
         public DbSet<KeyInfo> KeyInfos { get; set; }
