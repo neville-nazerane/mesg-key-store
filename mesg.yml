@@ -2,36 +2,15 @@ name: "Key Store"
 sid: "key-store"
 description: "Easy to use storage for keys"
 tasks:
-  call:
-    description: "This task will call a webhook and return the result of the call"
-    inputs:
-      url:
-        description: "URL that you want to call"
-        type: String
-      data:
-        description: "Data the you want to send"
-        type: Object
-      headers:
-        description: "Additional headers that you want to send"
-        type: Object
-    outputs:
-      error:
-        description: "Output if an error occurs"
-        data:
-          message:
-            description: "Error message"
-            type: String
-      result:
-        description: "Result of the call the returns the list of the data from the API call result"
-        data: {}
-tasks:
   fetch:
     inputs:
       alias:
-        type: string
-    outputs:
-      key:
         type: String
+    outputs:
+      success:
+        data:
+          key:
+            type: String
 configuration:
   ports:
     - "5321"
